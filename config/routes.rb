@@ -1,56 +1,28 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  
+  resources :musician do
+    resources :song
+  end
+  
+  root 'musician#index'
 end
+
+
+#   Prefix Verb   URI Pattern                                      Controller#Action
+#     musician_songs GET    /musicians/:musician_id/songs(.:format)          songs#index
+#                    POST   /musicians/:musician_id/songs(.:format)          songs#create
+#  new_musician_song GET    /musicians/:musician_id/songs/new(.:format)      songs#new
+# edit_musician_song GET    /musicians/:musician_id/songs/:id/edit(.:format) songs#edit
+#      musician_song GET    /musicians/:musician_id/songs/:id(.:format)      songs#show
+#                    PATCH  /musicians/:musician_id/songs/:id(.:format)      songs#update
+#                    PUT    /musicians/:musician_id/songs/:id(.:format)      songs#update
+#                    DELETE /musicians/:musician_id/songs/:id(.:format)      songs#destroy
+#          musicians GET    /musicians(.:format)                             musicians#index
+#                    POST   /musicians(.:format)                             musicians#create
+#       new_musician GET    /musicians/new(.:format)                         musicians#new
+#      edit_musician GET    /musicians/:id/edit(.:format)                    musicians#edit
+#           musician GET    /musicians/:id(.:format)                         musicians#show
+#                    PATCH  /musicians/:id(.:format)                         musicians#update
+#                    PUT    /musicians/:id(.:format)                         musicians#update
+#                    DELETE /musicians/:id(.:format)                         musicians#destroy
+#               root GET    /                                                musicians#index

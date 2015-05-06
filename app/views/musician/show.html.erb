@@ -1,0 +1,19 @@
+<h1><%= @musician.name %></h1>
+
+<div class="black-box">
+  <h2>Songs</h2>
+  <ul>
+    <% @musician.songs.each do |song| %>
+    <li>
+      <%= link_to "#{song.title}", song_pat(song) %>
+    </li>
+    <% end %>
+  </ul>
+
+  <% unless @songs.empty? %>
+    <%= form_tag add_song_path do |f| %>
+      <%= collection_select :song, :id, @songs, :id, :title %>
+      <%= submit_tag "Add" %>
+    <% end %>
+  <% end %>
+</div>

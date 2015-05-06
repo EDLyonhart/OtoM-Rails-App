@@ -1,0 +1,10 @@
+<h1>Musician</h1>
+
+
+<ul>
+  <% @musician.each do |musician| %>
+  <li><%= link_to musician.name, actor_path(musician) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Add new Musician", new_musician_path %>
